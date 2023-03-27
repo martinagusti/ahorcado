@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header><h1 id="titulo">¡Cuidado con tu cuello!</h1></header>
@@ -14,10 +15,11 @@
       <form>
         <label for="letra">Introduce una letra:</label>
         <input id="letra" type="text" maxlength="1"></input>
-        <button id="comprobar" type="submit">Comprobar</button>
-        <button id="reset" type="submit">Reset</button>
-      </form>
 
+      </form>
+      <button id="comprobar" >Comprobar</button>
+      <button id="reset" >Reset</button>
+    <h3 id="arrayError"></h3>
     </main>
     <footer></footer>
     <script src="main.js" type="module"></script>
