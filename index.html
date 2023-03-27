@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juego del Ahorcado</title>
-</head>
-<body>
-    <header><h1 id="titulo">¡Cuidado con tu cuello!</h1></header>
+  </head>
+  <body>
+    <header>
+      <h1 id="titulo">¡Cuidado con tu cuello!</h1>
+    </header>
     <main>
-      <h2 id="palabraSecreta"></h2>
-      <img id="persona"></img>
-      <form>
-        <label for="letra">Introduce una letra:</label>
-        <input id="letra" type="text" maxlength="1"></input>
-      </form>
-      <button id="comprobar">Comprobar</button>
-      <button id="reset">Reset</button>
-
+      <section id="juego">
+        <h2 id="palabraSecreta"></h2>
+        <img
+          id="persona"
+          src="persona.png"
+          alt="Persona colgada de una cuerda"
+        />
+        <form>
+          <label for="letra">Introduce una letra:</label>
+          <input id="letra" type="text" maxlength="1" />
+        </form>
+        <button id="comprobar">Comprobar</button>
+      </section>
     </main>
     <footer></footer>
-    <script src="main.js" type="module"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
