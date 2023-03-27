@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header><h1 id="titulo">¡Cuidado con tu cuello!</h1></header>
@@ -14,12 +15,25 @@
       <form>
         <label for="letra">Introduce una letra:</label>
         <input id="letra" type="text" maxlength="1"></input>
-      </form>
-      <button id="comprobar">Comprobar</button>
-      <button id="reset">Reset</button>
 
+      </form>
+      <button id="comprobar" >Comprobar</button>
+    <h3 id="arrayError"></h3>
     </main>
     <footer></footer>
+    <div class="modal-WinInicio">
+      <h2>¡¡Enhorabuena, salvaste el cuello!! 🎉</h2>
+      <img src="">
+      <button id="restart">Volver a jugar</button>
+    </div>
+
+    <div class="modal-LoseInicio">
+      <h2>¡¡Perdiste el cuello amigo!!</h2>
+      <h3 id="solucion"></h3>
+      <img src="">
+      <button id="restart">Volver a jugar</button>
+    </div>
+    
     <script src="main.js" type="module"></script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modal-Win {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 5%;
+  text-align: center;
+  background-color: rgba(105, 185, 207, 0.596);
+}
+
+.modal-WinInicio {
+  display: none;
+}
+
+.modal-Lose {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 5%;
+  text-align: center;
+  background-color: rgba(105, 185, 207, 0.596);
+}
+
+.modal-LoseInicio {
+  display: none;
+}
+
+h3 {
+  color: red;
+}
