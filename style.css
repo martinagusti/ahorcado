@@ -7,7 +7,7 @@
 }
 
 body{
-  background-image: url(img/fondo-movil.jpg);
+  background-image: url(img/fondo-ultimo.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
@@ -118,7 +118,7 @@ main button{
 }
 .modal-WinInicio {
   height: 40%;
-  width: 90%;
+  width: 70%;
   padding: 5%;
   text-align: center;
   background-color: rgba(217, 229, 233, 0.90);
@@ -134,7 +134,7 @@ main button{
 
 .modal-LoseInicio {
   height: 40%;
-  width: 90%;
+  width: 70%;
   padding: 5%;
   text-align: center;
   background-color: rgba(217, 229, 233, 0.90);
@@ -151,6 +151,7 @@ main button{
 footer{
   margin-top: auto;
   margin-bottom: 60px;
+  width: 90%;
 }
 
 footer h3 {
@@ -161,14 +162,14 @@ footer h3 {
 }
 
 #img_win{
-  width: 70px;
+  width: 90px;
   margin-top: 10px;
   margin-bottom: 5px;
 
 }
 
 #img_lose{
-  width: 70px;
+  width: 120px;
   margin-top: 10px;
   margin-bottom: 5px;
 
@@ -182,5 +183,38 @@ footer h3 {
   margin-top: auto;
   background-color: rgb(96, 96, 218);
   color: aliceblue;
+}
+
+#restart2{
+  width: 50%;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin-top: auto;
+  background-color: rgb(96, 96, 218);
+  color: aliceblue;
+}
+
+@media (max-width: 600px) {
+  
+}
+
+@media (min-width: 601px) {
+  body{
+    background-image: url(img-ordenador/fondo.jpg);
+    
+  }
+
+  header h1{
+    font-size: 4rem;
+  }
+
+  main h2{
+    font-size: 400%;
+  }
+
+  main{
+    
+  }
 }
 

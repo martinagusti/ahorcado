@@ -34,6 +34,7 @@ const modalWinInicio = document.querySelector("modal-WinInicio");
 const modalLoseInicio = document.querySelector(".modal-LoseInicio");
 const solucion = document.querySelector("#solucion");
 const restart = document.querySelector("#restart");
+const restart2 = document.querySelector("#restart2");
 const body = document.querySelector("body");
 
 //Errores
@@ -47,7 +48,9 @@ let arrayError = document.getElementById("arrayError");
 comprobar.addEventListener("click", () => {
   const palabraSecretaArray = palabraSecreta.split("");
 
-  if (palabraSecretaArray.includes(letraSeleccionada.value)) {
+  
+
+  if (palabraSecretaArray.includes((letraSeleccionada.value))) {
     const palabraOcultaArray = palabraOculta.split("");
 
     for (let i = 0; i <= palabraSecretaArray.length - 1; i++) {
@@ -56,7 +59,7 @@ comprobar.addEventListener("click", () => {
         
 
         palabraOculta = palabraOcultaArray.join("");
-       
+        
 
         h2.textContent = palabraOculta.toUpperCase();
       }
@@ -108,9 +111,25 @@ comprobar.addEventListener("click", () => {
   letraSeleccionada.focus()
 });
 
-restart.addEventListener("click", () => {
+function reiniciar(){
+  //volver a generar la palabra secreta
+  //fallos volver a 0
+  // imagen en 0
+  //textos en 0 
+}
 
+
+restart.addEventListener("click", () => {
+  reiniciar()
 });
+
+restart2.addEventListener("click", () => {
+  reiniciar()
+});
+
+
+
+
 
 
 
