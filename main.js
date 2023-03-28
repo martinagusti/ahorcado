@@ -53,10 +53,10 @@ comprobar.addEventListener("click", () => {
     for (let i = 0; i <= palabraSecretaArray.length - 1; i++) {
       if (palabraSecretaArray[i] === letraSeleccionada.value) {
         palabraOcultaArray[i] = letraSeleccionada.value;
-        console.log(palabraOcultaArray);
+        
 
         palabraOculta = palabraOcultaArray.join("");
-        console.log(palabraOculta);
+       
 
         h2.textContent = palabraOculta.toUpperCase();
       }
@@ -69,15 +69,16 @@ comprobar.addEventListener("click", () => {
       
     }
   } else {
-    if (letrasError.includes(letraSeleccionada.value)) {
+    if (letrasError.includes((letraSeleccionada.value).toUpperCase())) {
       console.log("letra repetida");
+      console.log(letrasError)
     } else {
       error--;
       letrasError.push((letraSeleccionada.value).toUpperCase());
       arrayError.textContent = letrasError.join("-");
       //Aquí un bucle con includes para no añadir la misma letraError 2 veces
       console.log(error);
-      console.log(letrasError);
+      
 
       if (error === 0) {
         body.style.backgroundImage = "url(img/fondo-movil-vacio.jpg)"
