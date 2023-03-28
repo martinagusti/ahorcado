@@ -1,5 +1,6 @@
-"use strict";
+"use stric";
 
+//Array de palabras a descubrir
 const palabras = [
   "patata",
   "pimiento",
@@ -10,79 +11,113 @@ const palabras = [
   "calabaza",
 ];
 
-// Generar palabra aleatoria
+//Generar palabra aleatoria
+
 const palabraRandom = Math.floor(Math.random() * palabras.length);
-let palabraSecreta = palabras[palabraRandom];
+const palabraSecreta = palabras[palabraRandom];
 console.log(palabraSecreta);
 
-// Palabra oculta
+//Palabra Oculta
 let palabraOculta = palabraSecreta.replace(/./g, "_");
 
-// Mostrar palabra en pantalla
+//Mostrar palabra en pantalla
 const h2 = document.getElementById("palabraSecreta");
-h2.textContent = palabraOculta;
+h2.textContent = palabraOculta.toUpperCase();
 
-// Contador de fallos
-let fallos = 0;
-
-const letraSeleccionada = document.getElementById("letra");
+//DOM
+let letraSeleccionada = document.getElementById("letra");
 const comprobar = document.getElementById("comprobar");
-const reset = document.getElementById("reset");
+const imagen = document.getElementById("persona");
+const containerWin = document.querySelector("#container-win");
+const containerLose = document.querySelector("#container-lose");
+const modalWinInicio = document.querySelector("modal-WinInicio");
+const modalLoseInicio = document.querySelector(".modal-LoseInicio");
+const solucion = document.querySelector("#solucion");
+const restart = document.querySelector("#restart");
+const body = document.querySelector("body");
+const modalBienvenida = document.getElementById("modal-bienvenida");
+const btnComenzar = document.getElementById("btn-comenzar");
+const btnReset = document.getElementById("btn-reset");
 
+//Mostrar modal de bienvenida al cargar la página
+window.onload = () => {
+  modalBienvenida.style.display = "block";
+};
+
+//Ocultar modal y comenzar el juego al hacer clic en el botón "Comenzar"
+btnComenzar.addEventListener("click", () => {
+  modalBienvenida.style.display = "none";
+});
+
+//Reiniciar el juego al hacer clic en el botón "Reiniciar juego"
+btnReset.addEventListener("click", () => {
+  location.reload();
+});
+
+//Errores
+let error = 6;
+let letrasError = [];
+
+//Mostrar letras erroneas
+let arrayError = document.getElementById("arrayError");
+
+//juego
 comprobar.addEventListener("click", () => {
   const palabraSecretaArray = palabraSecreta.split("");
 
   if (palabraSecretaArray.includes(letraSeleccionada.value)) {
     const palabraOcultaArray = palabraOculta.split("");
 
-    let palabraVisible;
-
     for (let i = 0; i <= palabraSecretaArray.length - 1; i++) {
       if (palabraSecretaArray[i] === letraSeleccionada.value) {
         palabraOcultaArray[i] = letraSeleccionada.value;
-        console.log(palabraOcultaArray);
 
-        palabraVisible = palabraOcultaArray.join("");
-        console.log(palabraVisible);
+        palabraOculta = palabraOcultaArray.join("");
 
-        h2.textContent = palabraVisible;
+        h2.textContent = palabraOculta.toUpperCase();
       }
     }
+    if (palabraOculta === palabraSecreta) {
+      console.log("has ganado!");
 
-    // Comprobar si se ha adivinado la palabra
-    if (palabraVisible === palabraSecreta) {
-      alert(`Has ganado! La palabra era ${palabraSecreta}`);
-      comprobar.disabled = true;
+      // Ventana modal ¡¡¡HAS GANADO!!!
+      containerWin.setAttribute("class", "container-win");
     }
   } else {
-    // Aumentar el contador de fallos
-    fallos++;
+    if (letrasError.includes(letraSeleccionada.value.toUpperCase())) {
+      console.log("letra repetida");
+      console.log(letrasError);
+    } else {
+      error--;
+      letrasError.push(letraSeleccionada.value.toUpperCase());
+      arrayError.textContent = letrasError.join("-");
+      //Aquí un bucle con includes para no añadir la misma letraError 2 veces
+      console.log(error);
 
-    // Comprobar si se han agotado los intentos
-    if (fallos === 6) {
-      alert(`Has perdido! La palabra era ${palabraSecreta}`);
-      comprobar.disabled = true;
+      if (error === 0) {
+        body.style.backgroundImage = "url(img/fondo-movil-vacio.jpg)";
+        console.log("has perdido!");
+        containerLose.setAttribute("class", "container-lose");
+
+        // Ventana modal ¡¡¡HAS PERDIDO!!!
+        modalLose.removeAttribute("class", "modal-LoseInicio");
+        modalLose.setAttribute("class", "modal-Lose");
+        solucion.textContent = `La palabra secreta era ${palabraSecreta}`;
+      } else if (error === 1) {
+        body.style.backgroundImage = "url(img/movil-pierna.jpg)";
+      } else if (error === 2) {
+        body.style.backgroundImage = "url(img/fondo-movil-2brazos.jpg)";
+      } else if (error === 3) {
+        body.style.backgroundImage = "url(img/fondo-movil-1brazo.jpg)";
+      } else if (error === 4) {
+        body.style.backgroundImage = "url(img/fondo-movil-cuerpo.jpg)";
+      } else if (error === 5) {
+        body.style.backgroundImage = "url(img/fondo-movil-cabeza.jpg)";
+      }
     }
   }
-
-  // Limpiar el campo de la letra
   letraSeleccionada.value = "";
+  letraSeleccionada.focus();
 });
 
-reset.addEventListener("click", () => {
-  // Generar una nueva palabra aleatoria
-  const nuevaPalabraRandom = Math.floor(Math.random() * palabras.length);
-  palabraSecreta = palabras[nuevaPalabraRandom];
-  console.log(palabraSecreta);
-
-  // Ocultar la nueva palabra
-  palabraOculta = palabraSecreta.replace(/./g, "_");
-  h2.textContent = palabraOculta;
-
-  // Reiniciar el contador de fallos
-  fallos = 0;
-  h3.textContent = `Fallos: ${fallos}`;
-
-  // Habilitar el botón de comprobar
-  comprobar.disabled = false;
-});
+restart.addEventListener("click", () => {});
