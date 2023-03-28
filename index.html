@@ -5,21 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/lunes-sangriento" rel="stylesheet">
 </head>
 <body>
     <header><h1 id="titulo">¡Cuidado con tu cuello!</h1></header>
     <main>
       <h2 id="palabraSecreta"></h2>
-      <img id="persona"></img>
-      <form>
-        <label for="letra">Introduce una letra:</label>
+      <label for="letra">Introduce una letra:</label>
+      <div>
         <input id="letra" type="text" maxlength="1"></input>
-        <button id="comprobar" type="submit">Comprobar</button>
-        <button id="reset" type="submit">Reset</button>
-      </form>
-
+        <button id="comprobar" >Comprobar</button>
+      </div>
+     
+      
     </main>
-    <footer></footer>
+    <footer>
+      <h3 id="arrayError"></h3>
+    </footer>
+    
+    <div id="container-win" class="win_oculta">
+      <div class="modal-WinInicio">
+        <h2>¡¡Enhorabuena, salvaste el cuello!! 🎉</h2>
+        <img src="img/win.png" id="img_win">
+        <button id="restart">Volver a jugar</button>
+      </div>
+     
+    </div>
+
+    <div id="container-lose" class="lose-oculta">
+      <div class="modal-LoseInicio">
+        <h2>¡¡Perdiste el cuello amigo!!</h2>
+        <h3 id="solucion"></h3>
+        <img src="img/lose.png" id="img_lose">
+        <button id="restart">Volver a jugar</button>
+      </div>
+     
+    </div>
+    
     <script src="main.js" type="module"></script>
 </body>
 </html>
