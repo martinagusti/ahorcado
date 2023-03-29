@@ -1,4 +1,4 @@
-"use stric";
+"use strict";
 
 //Array de palabras a descubrir
 const palabras = [
@@ -24,6 +24,10 @@ let palabraOculta = palabraSecreta.replace(/./g, "_");
 const h2 = document.getElementById("palabraSecreta");
 h2.textContent = palabraOculta.toUpperCase();
 
+//Errores
+let error = 6;
+let letrasError = [];
+
 //DOM
 let letraSeleccionada = document.getElementById("letra");
 const comprobar = document.getElementById("comprobar");
@@ -38,32 +42,45 @@ const body = document.querySelector("body");
 const modalBienvenida = document.getElementById("modal-bienvenida");
 const btnComenzar = document.getElementById("btn-comenzar");
 const btnReset = document.getElementById("btn-reset");
+const modal = document.getElementById("modal");
+const modalTitulo = document.getElementById("modal-titulo");
+const modalMensaje = document.getElementById("modal-mensaje");
+const modalImagen = document.getElementById("modal-imagen");
+const modalBoton = document.getElementById("modal-boton");
 
 //Mostrar modal de bienvenida al cargar la página
 window.onload = () => {
-  modalBienvenida.style.display = "block";
+  modalTitulo.textContent = "Bienvenido";
+  modalMensaje.textContent =
+    "Elige una letra y trata de adivinar la palabra secreta.";
+  modalImagen.src = "img/bienvenida.png";
+  modalImagen.alt = "Imagen de bienvenida";
+  modalBoton.textContent = "Comenzar";
+  modal.style.display = "block";
+
+  modalBoton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+  // modalBienvenida.style.display = "block";
 };
 
 //Ocultar modal y comenzar el juego al hacer clic en el botón "Comenzar"
-btnComenzar.addEventListener("click", () => {
-  modalBienvenida.style.display = "none";
-});
+// btnComenzar.addEventListener("click", () => {
+//   modalBienvenida.style.display = "none";
+// });
 
 //Reiniciar el juego al hacer clic en el botón "Reiniciar juego"
 btnReset.addEventListener("click", () => {
   location.reload();
 });
 
-//Errores
-let error = 6;
-let letrasError = [];
-
 //Mostrar letras erroneas
 let arrayError = document.getElementById("arrayError");
 
 //juego
 comprobar.addEventListener("click", () => {
-  const palabraSecretaArray = palabraSecreta.split("");
+  // let letraSeleccionada = document.getElementById("letra").value.toLowerCase();
+  const palabraSecretaArray = palabraSecreta.toLowerCase().split("");
 
   if (palabraSecretaArray.includes(letraSeleccionada.value)) {
     const palabraOcultaArray = palabraOculta.split("");
@@ -81,7 +98,16 @@ comprobar.addEventListener("click", () => {
       console.log("has ganado!");
 
       // Ventana modal ¡¡¡HAS GANADO!!!
-      containerWin.setAttribute("class", "container-win");
+      // containerWin.setAttribute("class", "container-win");
+      modalTitulo.textContent = "¡¡Enhorabuena, salvaste el cuello!! 🎉";
+      modalMensaje.textContent = "";
+      modalImagen.src = "img/win.png";
+      modalImagen.alt = "Persona contenta y viva!";
+      modalBoton.textContent = "Volver a jugar";
+      modal.style.display = "block";
+      modalBoton.addEventListener("click", () => {
+        location.reload();
+      });
     }
   } else {
     if (letrasError.includes(letraSeleccionada.value.toUpperCase())) {
@@ -95,14 +121,25 @@ comprobar.addEventListener("click", () => {
       console.log(error);
 
       if (error === 0) {
+        modalTitulo.textContent = "¡¡Perdiste el cuello amigo!!";
+        modalMensaje.textContent =
+          "La palabra secreta era: " + palabraSecreta.toUpperCase();
+        modalImagen.src = "img/lose.png";
+        modalImagen.alt = "Persona muerta!!!";
+        modalBoton.textContent = "Volver a jugar";
+        modal.style.display = "block";
+        modalBoton.addEventListener("click", () => {
+          location.reload();
+        });
+
         body.style.backgroundImage = "url(img/fondo-movil-vacio.jpg)";
         console.log("has perdido!");
         containerLose.setAttribute("class", "container-lose");
 
         // Ventana modal ¡¡¡HAS PERDIDO!!!
-        modalLose.removeAttribute("class", "modal-LoseInicio");
-        modalLose.setAttribute("class", "modal-Lose");
-        solucion.textContent = `La palabra secreta era ${palabraSecreta}`;
+        // modalLose.removeAttribute("class", "modal-LoseInicio");
+        // modalLose.setAttribute("class", "modal-Lose");
+        // solucion.textContent = `La palabra secreta era ${palabraSecreta}`;
       } else if (error === 1) {
         body.style.backgroundImage = "url(img/movil-pierna.jpg)";
       } else if (error === 2) {
@@ -120,4 +157,4 @@ comprobar.addEventListener("click", () => {
   letraSeleccionada.focus();
 });
 
-restart.addEventListener("click", () => {});
+// restart.addEventListener("click", () => {});

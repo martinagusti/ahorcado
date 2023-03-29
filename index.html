@@ -14,14 +14,6 @@
   <body>
     <header><h1 id="titulo">¡Cuidado con tu cuello!</h1></header>
     <main>
-      <div id="modal-bienvenida" class="modal">
-        <div class="modal-content">
-          <h2>Bienvenido</h2>
-          <p>Elige una letra y trata de adivinar la palabra secreta.</p>
-          <button id="btn-comenzar">Comenzar</button>
-        </div>
-      </div>
-
       <h2 id="palabraSecreta"></h2>
       <label for="letra">Introduce una letra:</label>
       <div>
@@ -34,22 +26,14 @@
       <h3 id="arrayError"></h3>
     </footer>
 
-    <div id="container-win" class="win_oculta">
-      <div class="modal-WinInicio">
-        <h2>¡¡Enhorabuena, salvaste el cuello!! 🎉</h2>
-        <img src="img/win.png" id="img_win" alt="Persona contenta y viva!" />
-        <!-- <button id="restart">Volver a jugar</button> -->
+    <aside id="modal" class="modal">
+      <div class="modal-content">
+        <h2 id="modal-titulo"></h2>
+        <p id="modal-mensaje"></p>
+        <img id="modal-imagen" src="" alt="" />
+        <button id="modal-boton"></button>
       </div>
-    </div>
-
-    <div id="container-lose" class="lose-oculta">
-      <div class="modal-LoseInicio">
-        <h2>¡¡Perdiste el cuello amigo!!</h2>
-        <h3 id="solucion"></h3>
-        <img src="img/lose.png" id="img_lose" alt="Persona muerta!!!" />
-        <!-- <button id="restart2">Volver a jugar</button> -->
-      </div>
-    </div>
+    </aside>
 
     <script src="main.js" type="module"></script>
   </body>
