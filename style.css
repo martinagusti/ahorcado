@@ -1,6 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/lunes-sangriento");
 
-
 * {
   margin: 0;
   padding: 0;
@@ -48,8 +47,6 @@ main h2 {
 main div {
   display: flex;
   flex-direction: column;
-
-  
 }
 
 main label {
@@ -115,7 +112,8 @@ main button {
   align-items: center;
   text-align: center;
 }
-.modal-WinInicio, .modal-LoseInicio {
+.modal-WinInicio,
+.modal-LoseInicio {
   height: 40%;
   width: 90%;
   padding: 5%;
@@ -201,7 +199,6 @@ footer h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .modal-content h2 {
@@ -215,14 +212,14 @@ footer h3 {
   color: aliceblue;
 }
 
-.botones_bienvenida{
+.botones_bienvenida {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
 }
 
-.botones_level{
+.botones_level {
   width: 5rem;
   height: 2rem;
   border-radius: 5px;
@@ -233,14 +230,14 @@ footer h3 {
   margin-top: 10px;
 }
 
-#img_arbol{
+#img_arbol {
   width: 600px;
   height: 600px;
   position: absolute;
   bottom: 0;
 }
 
-#modal_h3{
+#modal_h3 {
   color: aliceblue;
   margin-bottom: 5px;
   font-size: 1.5rem;

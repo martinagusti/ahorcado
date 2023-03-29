@@ -12,10 +12,13 @@
     />
   </head>
   <body>
-    <img src="img/arbol.png" alt="imagen del arbol del ahorcado" id="img_arbol">
+    <img
+      src="img/arbol.png"
+      alt="imagen del arbol del ahorcado"
+      id="img_arbol"
+    />
     <header><h1 id="titulo">¡Cuidado con tu cuello!</h1></header>
     <main>
-      
       <div id="modal-bienvenida" class="modal">
         <div class="modal-content">
           <h2 id="modal_h2">Bienvenido</h2>
@@ -23,27 +26,27 @@
           <h3 id="modal_h3"></h3>
           <p id="modal_p">Selecciona la dificultad para jugar.</p>
           <div class="botones_bienvenida">
-            <button id="easy" class="botones_level easy" >EASY</button>
+            <button id="easy" class="botones_level easy">EASY</button>
             <button id="normal" class="botones_level">NORMAL</button>
             <button id="hard" class="botones_level">HARD</button>
           </div>
-          
         </div>
       </div>
 
       <h2 id="palabraSecreta"></h2>
       <label for="letra">Introduce una letra:</label>
       <div>
-        <input id="letra" type="text" maxlength="1" autocomplete="off"/>
+        <input id="letra" type="text" maxlength="1" autocomplete="off" />
         <button id="comprobar">Comprobar</button>
-        
-        
       </div>
     </main>
+    <aside>
+      <h2 id="puntaje">Puntaje:</h2>
+      <h2 id="record">Record:</h2>
+    </aside>
     <footer>
       <h3 id="arrayError"></h3>
     </footer>
-
 
     <script src="main.js" type="module"></script>
   </body>
