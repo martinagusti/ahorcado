@@ -1,12 +1,48 @@
 "use strict"
 
-export const easy = ["aaaa", "bbbb", "cddd"]
-export const normal = ["abcd", "abcd", "abcd"]
-export const hard = ["zzz", "xxx", "yyy"]
+export const easy = [
+"zanahoria",
+"patata",
+"brocoli",
+"boniato",
+"acelgas",
+"pimiento",
+"coliflor",
+"berenjena",
+"alcachofa",
+"cebolla",
+]
+
+export const normal = [
+  "thailandia",
+  "peru",
+  "venezuela",
+  "argentina",
+  "españa",
+  "francia",
+  "alemania",
+  "colombia",
+  "marruecos",
+  "portugal",
+
+]
+
+export const hard = [
+  "javascript",
+  "array",
+  "backend",
+  "frontend",
+  "fullstack",
+  "funcion",
+  "constante",
+  "objeto",
+  "asincronia",
+  "fetch"
+]
 
 
-let palabraOculta;
-let palabraSecreta
+export let palabraOculta;
+export let palabraSecreta;
 let array = []
 
  export let arrayPalabras = function start(arrayRandom){
@@ -20,6 +56,8 @@ let array = []
  return (array)
 }
 
+console.log(array[0])
+console.log(array[1])
 
 
 

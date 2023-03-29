@@ -1,6 +1,6 @@
-"use stric";
+"use strict";
 
-import { arrayPalabras, easy, normal, hard } from "./word.js";
+import { arrayPalabras, easy, normal, hard} from "./word.js";
 
 
 
@@ -43,16 +43,17 @@ let arrayError = document.getElementById("arrayError");
 //juego
 comprobar.addEventListener("click", () => {
   const palabraSecretaArray = palabraSecreta.split("");
-
-  if(letraSeleccionada.value === ""){
+  let letra = letraSeleccionada.value;
+  console.log(letra.toLowerCase())
+  if(letra.toLowerCase() === ""){
     alert("Debes seleccionar una letra!")
   }else{
-    if (palabraSecretaArray.includes(letraSeleccionada.value)) {
+    if (palabraSecretaArray.includes(letra.toLowerCase())) {
       const palabraOcultaArray = palabraOculta.split("");
   
       for (let i = 0; i <= palabraSecretaArray.length - 1; i++) {
-        if (palabraSecretaArray[i] === letraSeleccionada.value) {
-          palabraOcultaArray[i] = letraSeleccionada.value;
+        if (palabraSecretaArray[i] === letra.toLowerCase()) {
+          palabraOcultaArray[i] = letra.toLowerCase();
   
           palabraOculta = palabraOcultaArray.join("");
   
@@ -69,12 +70,12 @@ comprobar.addEventListener("click", () => {
         modal_img.src = "img/win.png"
       }
     } else {
-      if (letrasError.includes(letraSeleccionada.value.toUpperCase())) {
+      if (letrasError.includes(letra.toUpperCase())) {
         console.log("letra repetida");
         console.log(letrasError);
       } else {
         error--;
-        letrasError.push(letraSeleccionada.value.toUpperCase());
+        letrasError.push(letra.toUpperCase());
         arrayError.textContent = letrasError.join("-");
         //Aquí un bucle con includes para no añadir la misma letraError 2 veces
         console.log(error);
@@ -116,12 +117,16 @@ comprobar.addEventListener("click", () => {
   letraSeleccionada.focus();
 });
 
+
+
 btn_easy.addEventListener("click", () =>  {
   
-  palabraSecreta = arrayPalabras(easy)[0]
-  palabraOculta = arrayPalabras(easy)[1]
+  let arrayEasy = arrayPalabras(easy)
+  palabraSecreta = arrayEasy[0]
+  palabraOculta = arrayEasy[1]
   h2.textContent = palabraOculta.toUpperCase();
   console.log(palabraSecreta)
+  console.log(palabraOculta)
   modalBienvenida.style.display = "none";
   error = 6
   letrasError = []
@@ -132,12 +137,11 @@ btn_easy.addEventListener("click", () =>  {
 })
 
 btn_normal.addEventListener("click", () =>  {
- 
-  palabraSecreta = arrayPalabras(normal)[0]
-  palabraOculta = arrayPalabras(normal)[1]
+  let arrayNormal = arrayPalabras(normal)
+  palabraSecreta = arrayNormal[0]
+  palabraOculta = arrayNormal[1]
   h2.textContent = palabraOculta.toUpperCase();
   console.log(palabraSecreta)
-  
   modalBienvenida.style.display = "none";
   error = 6
   letrasError = []
@@ -149,14 +153,15 @@ btn_normal.addEventListener("click", () =>  {
 
 btn_hard.addEventListener("click", () =>  {
   
-  palabraSecreta = arrayPalabras(hard)[0]
-  palabraOculta = arrayPalabras(hard)[1]
+  let arrayHard = arrayPalabras(hard)
+  palabraSecreta = arrayHard[0]
+  palabraOculta = arrayHard[1]
   h2.textContent = palabraOculta.toUpperCase();
   console.log(palabraSecreta)
   modalBienvenida.style.display = "none";
-  error = 6
+  error = 3
   letrasError = []
-  img_arbol.src = "img/arbol.png"
+  img_arbol.src = "img/img3.png"
   arrayError.textContent = ""
   letraSeleccionada.focus()
   console.log("hola")
