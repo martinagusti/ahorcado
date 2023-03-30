@@ -1,5 +1,7 @@
 "use strict"
 
+//En este archivo generamos la palabra random y la convertimos en guiones "_" se retorna un array con ambas.
+
 export const easy = [
 "zanahoria",
 "patata",
@@ -56,8 +58,6 @@ let array = []
  return (array)
 }
 
-console.log(array[0])
-console.log(array[1])
 
 
 
