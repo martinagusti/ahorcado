@@ -27,6 +27,7 @@ export function partidaGanada(puntaje ){
      // Ventana modal ¡¡¡HAS GANADO!!!
      modalBienvenida.style.display = "block";
      modal_h2.textContent = "¡Bien 🎉, salvaste el cuello! ";
+     modal_h3.textContent = ""
      modal_p.textContent = "¿Quieres volver a jugar?";
      modal_img.src = "img/win.png";
      puntaje_h2.textContent = `Puntaje: ${puntaje}`;
