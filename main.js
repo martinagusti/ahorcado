@@ -10,6 +10,7 @@ let puntaje = 0;
 //Errores
 let error = 6;
 let letrasError = [];
+let var_sonido = true
 
 
 //DOM
@@ -29,7 +30,7 @@ const audio_win = document.querySelector("#audio_win")
 const audio_lose = document.querySelector("#audio_lose")
 const audio_victory = document.querySelector("#audio_victory")
 const audio_loser = document.querySelector("#audio_loser")
-
+const sonido = document.querySelector(".sonido")
 
 //Comprobamos si existe "record" en el localStorage sino lo creamos!
 if (localStorage.getItem("record")) {
@@ -146,3 +147,16 @@ function comenzarJuego(dificultad){
   audio_fondo.src = "audio/dramatic.mp3"
   audio_fondo.play()
 }
+
+sonido.addEventListener("click", () => {
+ if(var_sonido === true){
+    audio_fondo.src = ""
+    var_sonido = false
+    audio_fondo.src = "audio/dramatic.mp3"
+    sonido.style.backgroundImage = "url(img/mute.png)";
+ }else{
+  audio_fondo.play()
+  var_sonido = true
+  sonido.style.backgroundImage = "url(img/Sound.png)";
+ }
+})
