@@ -15,7 +15,7 @@ let var_sonido = true
 
 //DOM
 let letraSeleccionada = document.getElementById("letra");
-const comprobar = document.getElementById("comprobar");
+const click_comprobar = document.getElementById("comprobar");
 const modalBienvenida = document.getElementById("modal-bienvenida");
 const btn_easy = document.querySelector(".easy");
 const btn_normal = document.querySelector("#normal");
@@ -45,8 +45,7 @@ window.onload = () => {
 };
 
 
-//juego
-comprobar.addEventListener("click", () => {
+function comprobar(){
   const palabraSecretaArray = palabraSecreta.split("");
   let letra = letraSeleccionada.value;
  
@@ -107,6 +106,11 @@ comprobar.addEventListener("click", () => {
 
   letraSeleccionada.value = "";
   letraSeleccionada.focus();
+}
+
+//juego
+ click_comprobar.addEventListener("click", () => {
+  comprobar()
 });
 
 btn_easy.addEventListener("click", () => {
@@ -145,7 +149,10 @@ function comenzarJuego(dificultad){
   arrayError.textContent = "";
   letraSeleccionada.focus();
   audio_fondo.src = "audio/dramatic.mp3"
-  audio_fondo.play()
+  if(var_sonido === true){
+    audio_fondo.play()
+  }
+  
 }
 
 sonido.addEventListener("click", () => {
@@ -160,3 +167,16 @@ sonido.addEventListener("click", () => {
   sonido.style.backgroundImage = "url(img/Sound.png)";
  }
 })
+
+//activar la tecla enter
+
+function enter(){
+  let tecla = event.keyCode;
+  if(tecla === 13){
+    comprobar()
+   
+  }
+}
+
+window.onkeydown = enter
+
