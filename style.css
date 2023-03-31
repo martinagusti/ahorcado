@@ -92,6 +92,12 @@ main button {
 
 main button:hover{
   cursor: pointer;
+  background-color: rgba(105, 185, 207, 0.796);;
+  
+}
+
+.sonido:hover{
+  cursor: pointer;
 }
 
 section{
@@ -267,6 +273,8 @@ footer h3 {
   gap: 10px;
 }
 
+
+
 .botones_level {
   width: 5rem;
   height: 2rem;
@@ -276,6 +284,10 @@ footer h3 {
   color: aliceblue;
   margin-top: 10px;
   box-shadow: 0 0 5px white;
+}
+
+.botones_level:hover{
+  background-color:  rgba(241, 25, 9, 0.7);
 }
 
 #img_arbol {
