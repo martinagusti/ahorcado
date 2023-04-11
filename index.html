@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- La sección head contiene las etiquetas meta para la codificación de caracteres y la compatibilidad con IE, además de una etiqueta title para el título de la página. También se enlaza un archivo CSS para los estilos de la página y una fuente de Google. Finalmente, se enlaza un icono para la pestaña del navegador. -->
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juego del Ahorcado</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Nosifer:400&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="soga.ico">
+    <link
+      href="https://fonts.googleapis.com/css?family=Nosifer:400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="soga.ico" />
   </head>
-  <body>
-    <div class="arbol">
 
-    </div>
+  <!-- La sección body define la estructura y elementos de la página.  -->
+  <body>
+    <!-- Contiene el título del juego, un div con clase arbol para mostrar una imagen del árbol del ahorcado, y un encabezado. -->
+    <div class="arbol"></div>
     <!-- <img
       src="img/arbol.png"
       alt="imagen del arbol del ahorcado"
       id="img_arbol"
     /> -->
-    <header><h1 id="titulo">¡Cuidado con tu cuello!</h1></header>
+    <header>
+      <h1 id="titulo">¡Cuidado con tu cuello!</h1>
+    </header>
     <main>
+      <!-- Se define un modal para dar la bienvenida al usuario y seleccionar dificultad, que contiene botones para las dificultades easy, normal y hard. -->
       <div id="modal-bienvenida" class="modal">
         <div class="modal-content">
           <h2 id="modal_h2">Bienvenido</h2>
-          <img src="a" id="modal_img" alt="" />
+          <img src="#" id="modal_img" alt="" />
           <h3 id="modal_h3"></h3>
           <p id="modal_p">Selecciona la dificultad para jugar.</p>
           <div class="botones_bienvenida">
@@ -34,6 +42,7 @@
         </div>
       </div>
 
+      <!-- En el main se encuentra el título de la palabra secreta a adivinar, un label para introducir una letra y un input y botón para comprobar. Además, contiene un aside con el puntaje y un récord, y un div con el contenido del juego. -->
       <h2 id="palabraSecreta"></h2>
       <label for="letra">Introduce una letra:</label>
       <section>
@@ -45,14 +54,11 @@
           <input id="letra" type="text" maxlength="1" autocomplete="off" />
           <button id="comprobar">Comprobar</button>
         </div>
-        </section>
-       
-     
+      </section>
     </main>
-    <div class="sonido">
+    <div class="sonido"></div>
 
-    </div>
-   
+    <!-- El footer contiene información sobre los desarrolladores de la aplicación y un audio para el fondo y efectos del juego. -->
     <footer>
       <h3 id="arrayError"></h3>
       <p>© 2023 Carlos, Gustavo, Giancarlo y Martin.</p>
@@ -64,6 +70,7 @@
     <audio src="audio/victory.mp3" id="audio_victory"></audio>
     <audio src="audio/loser.mp3" id="audio_loser"></audio>
 
+    <!-- Finalmente, se enlaza un archivo .js para la interacción de la aplicación con el usuario. -->
     <script src="main.js" type="module"></script>
   </body>
 </html>
